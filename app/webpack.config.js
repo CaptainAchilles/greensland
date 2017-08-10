@@ -1,12 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
-
-const extractSass = new ExtractTextPlugin({
-    filename: "[name].[contenthash].css",
-    disable: process.env.NODE_ENV === "development"
-});
 
 module.exports = {
     devtool: "source-map",
@@ -27,27 +21,17 @@ module.exports = {
         }
     },
     resolve: {
-        extensions: [".js"]
+        extensions: [".jsx", ".js"]
     },
     module: {
         rules: [
-            { test: /\.(js)$/, use: "babel-loader" },
-            { test: /\.(png|ico)(\?.*)?$/, use: "url-loader" },
-            {
-                test: /\.scss$/, use: extractSass.extract({
-                    use: [
-                        { loader: "css-loader", options: { sourceMap: true } },
-                        { loader: "sass-loader", options: { sourceMap: true } }
-                    ],
-                    fallback: "style-loader"
-                })
-            }
+            { test: /\.(js|jsx)$/, use: "babel-loader" },
+            { test: /\.(png|ico)(\?.*)?$/, use: "url-loader" }
         ]
     },
     plugins: [
-        extractSass,
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: "./public/index.html",
             favicon: "./public/favicon.ico",
             inject: true,
             minify: {
