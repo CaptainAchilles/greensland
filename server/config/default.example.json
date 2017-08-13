@@ -1,0 +1,12 @@
+{
+    "db": {
+        "name": "name_of_database",
+        "username": "username",
+        "password": "password",
+        "other": {
+            "host": "localhost",
+            "dialect": "sqlite3",
+            "storage": "./path/to/sqlite.db"
+        }
+    }
+}

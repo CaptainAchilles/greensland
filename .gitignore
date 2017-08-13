@@ -4,3 +4,8 @@ server/npm-debug.log*
 app/npm-debug.log*
 app/dist/**
 server/dist/**
+
+# Ignore all config files
+# Except the example one
+server/config/**
+!server/config/default.example.json
