@@ -1,35 +1,38 @@
 {
-    "name": "greensland",
-    "version": "1.0.0",
-    "description": "Greensland Server",
-    "main": "src/index.js",
-    "scripts": {
-        "start": "nodemon ./src/index.js --exec babel-node -e js",
-        "lint": "eslint ./src/**.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/CaptainAchilles/greensland"
-    },
-    "author": "MrCeleryman",
-    "license": "GPLv3",
-    "bugs": {
-        "url": "https://github.com/CaptainAchilles/greensland/issues"
-    },
-    "homepage": "https://github.com/CaptainAchilles/greensland#README",
-    "dependencies": {
-        "config": "^1.26.2",
-        "cors": "^2.8.4",
-        "express": "^4.15.3",
-        "sequelize": "^4.4.3",
-        "sqlite3": "^3.1.9"
-    },
-    "devDependencies": {
-        "babel-cli": "^6.24.1",
-        "babel-preset-es2015": "^6.24.1",
-        "babel-preset-stage-0": "^6.24.1",
-        "eslint": "^4.2.0",
-        "eslint-config-google": "^0.9.1",
-        "nodemon": "^1.11.0"
-    }
+  "name": "greensland",
+  "version": "1.0.0",
+  "description": "Greensland Server",
+  "main": "src/index.js",
+  "scripts": {
+    "db:populate": "babel-node ./src/populate.js || (exit 0)",
+    "start": "nodemon ./src/index.js --exec babel-node -e js",
+    "lint": "eslint ./src/**.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaptainAchilles/greensland"
+  },
+  "author": "MrCeleryman",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/CaptainAchilles/greensland/issues"
+  },
+  "homepage": "https://github.com/CaptainAchilles/greensland#README",
+  "dependencies": {
+    "config": "^1.26.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.3",
+    "fast-csv": "^2.4.0",
+    "request": "^2.81.0",
+    "sequelize": "^4.4.3",
+    "sqlite3": "^3.1.9"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.2.0",
+    "eslint-config-google": "^0.9.1",
+    "nodemon": "^1.11.0"
+  }
 }

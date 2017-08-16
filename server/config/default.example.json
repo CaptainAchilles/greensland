@@ -5,7 +5,7 @@
         "password": "password",
         "other": {
             "host": "localhost",
-            "dialect": "sqlite3",
+            "dialect": "sqlite",
             "storage": "./path/to/sqlite.db"
         }
     }

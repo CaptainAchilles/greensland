@@ -1,10 +1,18 @@
-import Sequelize from "Sequelize";
+import {
+    Sequelize
+} from "../database";
+import {
+    DataTypes
+} from "sequelize";
 
 const ParkModel = {
-    parkName: Sequelize.STRING,
-    parkId: Sequelize.STRING // Comes from Open-Data---AM---datasetparkfacilties.csv
+    id: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+        autoIncrement: false
+    },
+    parkName: DataTypes.STRING
 };
-// BrisbaneCityCouncilEventsVenueLocations20170530.csv
 
 module.exports = {
     Park: Sequelize.define("park", ParkModel)

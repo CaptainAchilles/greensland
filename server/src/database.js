@@ -12,11 +12,10 @@ let sequelizeInstance = undefined;
 const Connect = () => {
     if (sequelizeInstance === undefined) {
         sequelizeInstance = new Sequelize(dbSettings.name, dbSettings.username, dbSettings.password, Object.assign({}, dbSettings.other));
-        return sequelizeInstance.authenticate();
-    } else {
-        return Promise.resolve(sequelizeInstance);
     }
+    return sequelizeInstance;
 }
+
 module.exports = {
-    Connect
+    Sequelize: Connect()
 }
