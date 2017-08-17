@@ -23,7 +23,7 @@ const ParkItemModel = {
     lng: DataTypes.FLOAT,
 };
 
-const parkItem = Sequelize.define("parkItem", ParkItemModel);
+const parkItem = Sequelize.define("park_item", ParkItemModel);
 parkItem.belongsTo(Park);
 module.exports = {
     ParkItem: parkItem

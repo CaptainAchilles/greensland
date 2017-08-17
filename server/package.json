@@ -6,7 +6,10 @@
   "scripts": {
     "db:populate": "babel-node ./src/populate.js || (exit 0)",
     "start": "nodemon ./src/index.js --exec babel-node -e js",
-    "lint": "eslint ./src/**.js"
+    "lint": "eslint ./src/**.js",
+    "migrate:up": "sequelize --config config/environment.js db:migrate",
+    "migrate:down": "sequelize --config config/environment.js db:migrate:undo",
+    "migrate:create": "sequelize --config config/environment.js migration:create"
   },
   "repository": {
     "type": "git",
@@ -33,6 +36,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.2.0",
     "eslint-config-google": "^0.9.1",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "sequelize-cli": "^2.8.0"
   }
 }

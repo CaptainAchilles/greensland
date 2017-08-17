@@ -1,23 +1,18 @@
-import {
-    Sequelize
-} from "./database";
-
 import express from "express";
 import cors from "cors";
 
-Sequelize.sync().then(() => {
-    const PORT = 3000;
-    const server = express();
 
-    server.use("*", cors({
-        origin: `http://localhost:${PORT}`
-    }));
+const PORT = 3000;
+const server = express();
 
-    server.get("/", (req, res) => {
-        res.send("Greensland");
-    });
+server.use("*", cors({
+    origin: `http://localhost:${PORT}`
+}));
 
-    server.listen(PORT, () => console.log(
-        `server is now running on http://localhost:${PORT}`
-    ));
-})
+server.get("/", (req, res) => {
+    res.send("Greensland");
+});
+
+server.listen(PORT, () => console.log(
+    `server is now running on http://localhost:${PORT}`
+));

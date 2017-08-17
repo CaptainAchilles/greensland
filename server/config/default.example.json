@@ -1,6 +1,6 @@
 {
     "db": {
-        "name": "name_of_database",
+        "database": "name_of_database",
         "username": "username",
         "password": "password",
         "other": {

@@ -11,7 +11,7 @@ let sequelizeInstance = undefined;
  */
 const Connect = () => {
     if (sequelizeInstance === undefined) {
-        sequelizeInstance = new Sequelize(dbSettings.name, dbSettings.username, dbSettings.password, Object.assign({}, dbSettings.other));
+        sequelizeInstance = new Sequelize(dbSettings.database, dbSettings.username, dbSettings.password, Object.assign({}, dbSettings.other));
     }
     return sequelizeInstance;
 }
