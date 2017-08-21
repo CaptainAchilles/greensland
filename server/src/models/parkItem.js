@@ -1,13 +1,7 @@
-import {
-    Sequelize,
-} from "../database";
-import {
-    Park
-} from "./park";
+import { DataTypes } from "sequelize";
+import { Sequelize } from "../database";
+import { Park } from "./park";
 
-import {
-    DataTypes
-} from "sequelize";
 const ParkItemModel = {
     id: {
         type: DataTypes.STRING,
