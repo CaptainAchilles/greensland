@@ -11,7 +11,9 @@ const ParkModel = {
         primaryKey: true,
         autoIncrement: false
     },
-    parkName: DataTypes.STRING
+    parkName: DataTypes.STRING,
+    lat: DataTypes.FLOAT,
+    lng: DataTypes.FLOAT
 };
 
 module.exports = {
