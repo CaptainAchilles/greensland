@@ -9,4 +9,5 @@ server/dist/**
 # Except the example one
 server/config/**
 !server/config/default.example.json
+!server/config/environment.js
 server/greensland.db
