@@ -5,7 +5,7 @@ import { Park } from "../models";
  * @return {Promise<Park[]>} Promise which resolves to an array of Park models
  */
 const GetAll = () => Park.findAll({
-    attributes: ["id", "parkName"]
+    attributes: ["id", "parkName", "lat", "lng"]
 });
 
 /**
