@@ -1,9 +1,7 @@
-import {
-    Sequelize
-} from "../database";
-import {
-    DataTypes
-} from "sequelize";
+import { Sequelize } from "../database";
+import { DataTypes } from "sequelize";
+import ParkItem from "./parkItem";
+
 
 const ParkModel = {
     id: {
@@ -16,6 +14,7 @@ const ParkModel = {
     lng: DataTypes.FLOAT
 };
 
-module.exports = {
-    Park: Sequelize.define("park", ParkModel)
-}
+const park = Sequelize.define("park", ParkModel);
+
+park.hasMany(ParkItem);
+module.exports = park;

@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import { Sequelize } from "../database";
-import { Park } from "./park";
 
 const ParkItemModel = {
     id: {
@@ -18,7 +17,5 @@ const ParkItemModel = {
 };
 
 const parkItem = Sequelize.define("park_item", ParkItemModel);
-parkItem.belongsTo(Park);
-module.exports = {
-    ParkItem: parkItem
-}
+
+module.exports = parkItem

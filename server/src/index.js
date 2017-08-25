@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { ParkRoute } from "./routes";
+import { ParkRoute, ParkItemRoute } from "./routes";
 
 
 const PORT = 3000;
@@ -11,6 +11,7 @@ server.use("*", cors({
 }));
 
 server.use("/parks", ParkRoute);
+server.use("/parkItems", ParkItemRoute);
 
 server.get("/", (req, res) => {
     res.send("Greensland");
