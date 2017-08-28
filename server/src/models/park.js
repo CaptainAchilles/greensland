@@ -1,9 +1,7 @@
-import {
-    Sequelize
-} from "../database";
-import {
-    DataTypes
-} from "sequelize";
+import { Sequelize } from "../database";
+import { DataTypes } from "sequelize";
+import ParkItem from "./parkItem";
+
 
 const ParkModel = {
     id: {
@@ -11,9 +9,12 @@ const ParkModel = {
         primaryKey: true,
         autoIncrement: false
     },
-    parkName: DataTypes.STRING
+    parkName: DataTypes.STRING,
+    lat: DataTypes.FLOAT,
+    lng: DataTypes.FLOAT
 };
 
-module.exports = {
-    Park: Sequelize.define("park", ParkModel)
-}
+const park = Sequelize.define("park", ParkModel);
+
+park.hasMany(ParkItem);
+module.exports = park;

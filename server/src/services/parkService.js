@@ -1,4 +1,4 @@
-import ParkRepository from "../repositories/parkRepository";
+import { ParkRepository } from "../repositories";
 
 /**
  * Fetches all Park models available
