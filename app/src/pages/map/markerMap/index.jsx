@@ -12,10 +12,7 @@ const Map = withScriptjs(withGoogleMap(props => <GoogleMap
         averageCenter
         enableRetinaIcons
         gridSize={30}>
-        {props.parks.map(x => {
-            x.onClick = props.markerClick;
-            return ParkMarker(x);
-        })}
+        {props.parks.map(x => ParkMarker({ ...x, onClick: props.markerClick }))}
     </MarkerClusterer>
 </GoogleMap>
 ));

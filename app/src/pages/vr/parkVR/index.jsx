@@ -9,4 +9,4 @@ const overlay = cxs(`
     background: red;
 `);
 
-export default props => <div className={overlay}>{props.id}</div>;
+export default props => props.id && <div className={overlay} onClick={props.onClick}>{props.id}</div>;

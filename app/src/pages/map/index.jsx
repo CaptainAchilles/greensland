@@ -6,25 +6,35 @@ import MarkerMap from "./markerMap"
 
 import { ParkService } from "../../services";
 
-export default props =>
-    <Async promise={ParkService.getParks()} then={parks => {
-        let vrProps = undefined;
-        const showOverlay = props => {
-            vrProps = props;
+export default class MapManager extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            parks: [],
+            selectedMarker: undefined
         };
-        const hideOverlay = () => {
-            vrProps = undefined;
-        };
-        const getProps = () => {
-            return vrProps;
-        };
+    }
 
+    componentDidMount() {
+        ParkService.getParks()
+            .then(parks => this.setState({ parks }));
+    }
+
+    showOverlay = overlayData => {
+        this.setState({
+            selectedMarker: overlayData
+        });
+    }
+    hideOverlay = () => {
+        this.setState({
+            selectedMarker: undefined
+        });
+    }
+
+    render() {
         return <div>
-            <MarkerMap markerClick={showOverlay} parks={parks}></MarkerMap>
-            {vrProps && <ParkVR
-                waitForUpdate={getProps}
-            ></ParkVR>}
+            <MarkerMap markerClick={this.showOverlay} parks={this.state.parks}></MarkerMap>
+            {this.state.selectedMarker && <ParkVR {...this.state.selectedMarker} onClick={this.hideOverlay}></ParkVR>}
         </div>
     }
-    } />
-
+}
