@@ -6,8 +6,12 @@ const subRouter = express.Router();
 subRouter.route("/")
     .get(ParkItemController.GetAll)
 
-subRouter.route("/:id")
+subRouter.route("/id/:id")
     .get(ParkItemController.GetByID)
+
+subRouter.route("/types")
+    .get(ParkItemController.GetAllUniqueTypes)
+
 
 subRouter.route("/park/:id")
     .get(ParkItemController.GetForPark)
