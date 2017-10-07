@@ -24,7 +24,6 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-google-maps": "^8.3.2",
-    "react-promise": "^1.2.1",
     "react-router-dom": "^4.1.2"
   },
   "devDependencies": {

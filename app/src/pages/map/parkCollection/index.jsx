@@ -1,5 +1,4 @@
 import React from "react";
-import Async from "react-promise";
 import cxs from "cxs";
 
 import { ParkService } from "../../../services";
