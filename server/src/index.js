@@ -7,7 +7,7 @@ const PORT = 3000;
 const server = express();
 
 server.use("*", cors({
-    origin: `http://localhost:${PORT}`
+    origin: `*`
 }));
 
 server.use("/parks", ParkRoute);

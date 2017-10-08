@@ -6,7 +6,7 @@ const subRouter = express.Router();
 subRouter.route("/")
     .get(GetAll)
 
-subRouter.route("/:id")
+subRouter.route("/id/:id")
     .get(GetByID)
 
 module.exports = subRouter;
