@@ -1,6 +1,6 @@
 import React from "react";
 
-import ParkVR from "../vr/parkVr";
+import ParkVR from "../vr/parkVR";
 import MarkerMap from "./markerMap"
 import ParkCollection from "./parkCollection";
 

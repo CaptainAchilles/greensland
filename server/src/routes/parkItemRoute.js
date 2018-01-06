@@ -12,6 +12,8 @@ subRouter.route("/id/:id")
 subRouter.route("/types")
     .get(ParkItemController.GetAllUniqueTypes)
 
+subRouter.route("/random")
+    .get(ParkItemController.GetForRandomPark)
 
 subRouter.route("/park/:id")
     .get(ParkItemController.GetForPark)
