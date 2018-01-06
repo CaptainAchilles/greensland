@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
 
@@ -40,6 +41,9 @@ module.exports = {
                 removeAttributeQuotes: true
             }
         }),
+        new CopyWebpackPlugin([
+            { from: "static" }
+        ]),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin()
     ]

@@ -1,4 +1,5 @@
 import { ParkItemService } from "../services";
+import { ParkService } from "../services";
 
 /**
  * Attaches all park items to the given express Response parameter body as a stringified json object
@@ -28,7 +29,7 @@ const GetForPark = (req, res) => {
         return Promise.resolve(res.status(500).json({ error: "Missing ID" }));
     }
     return ParkItemService.GetForPark(id)
-        .then(foundPark => res.status(200).json(foundPark))
+        .then(foundParkItems => res.status(200).json({parkItems: foundParkItems }))
         .catch(err => res.status(500).json(err));
 }
 
@@ -42,13 +43,37 @@ const GetByID = (req, res) => {
         return Promise.resolve(res.status(500).json({ error: "Missing ID" }));
     }
     return ParkItemService.GetByID(id)
-        .then(foundPark => res.status(200).json(foundPark))
+        .then(parkItems => res.status(200).json(parkItems))
         .catch(err => res.status(500).json(err));
+}
+
+/**
+ * Attaches the parkitems for a random park to the express Request parameter to the given express Response parameter body as a stringified json object
+ * @return {Promise<Response>} Promise which resolves to the express Response
+ */
+const GetForRandomPark = (req, res) => {
+    return ParkService.GetRandom()
+        .then(park => {
+            if (park === undefined) {
+                return res.status(200).json({
+                    park: "No parks",
+                    parkItems: []
+                });
+            }
+        return ParkItemService.GetForPark(park.id)
+            .then(parkItems => res.status(200).json({
+                park: park,
+                parkItems: parkItems
+            }))
+            .catch(err => res.status(500).json(err));
+        });
+    
 }
 
 module.exports = {
     GetAll,
     GetAllUniqueTypes,
     GetForPark,
+    GetForRandomPark,
     GetByID
 }
